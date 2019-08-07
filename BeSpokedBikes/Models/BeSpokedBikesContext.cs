@@ -36,9 +36,7 @@ namespace BeSpokedBikes.Models
 
             modelBuilder.Entity<Customer>(entity =>
             {
-                entity.Property(e => e.CustomerId)
-                    .HasColumnName("CustomerID")
-                    .HasDefaultValueSql("(newid())");
+                entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
 
                 entity.Property(e => e.Address)
                     .HasMaxLength(100)
@@ -58,18 +56,20 @@ namespace BeSpokedBikes.Models
                     .HasMaxLength(11)
                     .IsUnicode(false);
 
-                entity.Property(e => e.StartDate).HasColumnType("datetime");
+                entity.Property(e => e.StartDate)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
             });
 
             modelBuilder.Entity<Discount>(entity =>
             {
-                entity.Property(e => e.DiscountId)
-                    .HasColumnName("DiscountID")
-                    .HasDefaultValueSql("(newid())");
+                entity.Property(e => e.DiscountId).HasColumnName("DiscountID");
 
-                entity.Property(e => e.BeginDate).HasColumnType("datetime");
+                entity.Property(e => e.BeginDate)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.DiscountPercentage).HasColumnType("decimal(18, 18)");
+                entity.Property(e => e.DiscountPercentage).HasColumnType("decimal(18, 4)");
 
                 entity.Property(e => e.EndDate).HasColumnType("datetime");
 
@@ -84,11 +84,9 @@ namespace BeSpokedBikes.Models
             {
                 entity.HasKey(e => e.ProductId);
 
-                entity.Property(e => e.ProductId)
-                    .HasColumnName("ProductID")
-                    .HasDefaultValueSql("(newid())");
+                entity.Property(e => e.ProductId).HasColumnName("ProductID");
 
-                entity.Property(e => e.CommissionPercentage).HasColumnType("decimal(18, 18)");
+                entity.Property(e => e.CommissionPercentage).HasColumnType("decimal(18, 4)");
 
                 entity.Property(e => e.Manufacturer)
                     .IsRequired()
@@ -100,9 +98,9 @@ namespace BeSpokedBikes.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.PurchasePrice).HasColumnType("decimal(18, 18)");
+                entity.Property(e => e.PurchasePrice).HasColumnType("decimal(18, 4)");
 
-                entity.Property(e => e.SalePrice).HasColumnType("decimal(18, 18)");
+                entity.Property(e => e.SalePrice).HasColumnType("decimal(18, 4)");
 
                 entity.Property(e => e.Style)
                     .HasMaxLength(50)
@@ -111,11 +109,11 @@ namespace BeSpokedBikes.Models
 
             modelBuilder.Entity<Sales>(entity =>
             {
-                entity.Property(e => e.SalesId)
-                    .HasColumnName("SalesID")
-                    .HasDefaultValueSql("(newid())");
+                entity.Property(e => e.SalesId).HasColumnName("SalesID");
 
-                entity.Property(e => e.SalesDate).HasColumnType("datetime");
+                entity.Property(e => e.SalesDate)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
 
                 entity.HasOne(d => d.CustomerNavigation)
                     .WithMany(p => p.Sales)
@@ -138,9 +136,7 @@ namespace BeSpokedBikes.Models
 
             modelBuilder.Entity<SalesPerson>(entity =>
             {
-                entity.Property(e => e.SalesPersonId)
-                    .HasColumnName("SalesPersonID")
-                    .HasDefaultValueSql("(newid())");
+                entity.Property(e => e.SalesPersonId).HasColumnName("SalesPersonID");
 
                 entity.Property(e => e.Address)
                     .HasMaxLength(100)
@@ -164,7 +160,9 @@ namespace BeSpokedBikes.Models
                     .HasMaxLength(11)
                     .IsUnicode(false);
 
-                entity.Property(e => e.StartDate).HasColumnType("datetime");
+                entity.Property(e => e.StartDate)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.TerminationDate).HasColumnType("datetime");
             });

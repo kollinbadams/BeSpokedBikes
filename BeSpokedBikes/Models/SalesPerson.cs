@@ -10,7 +10,7 @@ namespace BeSpokedBikes.Models
             Sales = new HashSet<Sales>();
         }
 
-        public Guid SalesPersonId { get; set; }
+        public int SalesPersonId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }

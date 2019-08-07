@@ -5,10 +5,10 @@ namespace BeSpokedBikes.Models
 {
     public partial class Sales
     {
-        public Guid SalesId { get; set; }
-        public Guid Product { get; set; }
-        public Guid SalesPerson { get; set; }
-        public Guid Customer { get; set; }
+        public int SalesId { get; set; }
+        public int Product { get; set; }
+        public int SalesPerson { get; set; }
+        public int Customer { get; set; }
         public DateTime SalesDate { get; set; }
 
         public virtual Customer CustomerNavigation { get; set; }
