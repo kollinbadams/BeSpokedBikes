@@ -25,6 +25,18 @@
     <Content Remove="ClientApp\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="ClientApp\app\components\addproduct\addproduct.component.ts" />
+    <None Remove="ClientApp\app\components\fetchproduct\fetchproduct.component.ts" />
+    <None Remove="ClientApp\app\Services\productservice.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\components\addproduct\addproduct.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\fetchproduct\fetchproduct.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\Services\productservice.service.ts" />
+  </ItemGroup>
+
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">

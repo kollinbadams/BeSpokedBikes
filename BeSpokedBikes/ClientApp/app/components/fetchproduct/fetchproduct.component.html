@@ -1,0 +1,41 @@
+﻿<h1>Products Data</h1>
+
+<p>This component demonstrates fetching Products data from the server.</p>
+
+<p *ngIf="!productList"><em>Loading...</em></p>
+
+<p>
+    <a [routerLink]="['/register-product']">Create New</a>
+</p>
+
+<table class='table' *ngIf="productList">
+    <thead>
+        <tr>
+            <th>ProductID</th>
+            <th>Name</th>
+            <th>Manufacturer</th>
+            <th>Style</th>
+            <th>Purchase Price</th>
+            <th>Sale Price</th>
+            <th>Quantity On Hand</th>
+            <th>Commission Percentage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of productList">
+            <td>{{ product.productId }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.manufacturer }}</td>
+            <td>{{ product.style }}</td>
+            <td>{{ product.purchasePrice }}</td>
+            <td>{{ product.salePrice }}</td>
+            <td>{{ product.qtyOnHand }}</td>
+            <td>{{ product.commissionPercentage }}</td>
+            <td>
+            <td>
+                <a [routerLink]="['/product/edit/', product.productId]">Edit</a>
+                <!--<a [routerLink]="" (click)="delete(product.productId)">Delete</a>-->
+            </td>
+        </tr>
+    </tbody>
+</table>

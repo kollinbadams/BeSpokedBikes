@@ -54,5 +54,19 @@ namespace BeSpokedBikes.Models
             }
             
         }
+
+        //Get the details of a particular product  
+        public Products GetProductData(int id)
+        {
+            try
+            {
+                Products product = db.Products.Find(id);
+                return product;
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

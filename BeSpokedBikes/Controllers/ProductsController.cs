@@ -8,7 +8,6 @@ using BeSpokedBikes.Models;
 
 namespace BeSpokedBikes.Controllers
 {
-    [Route("api/[controller]")]
     public class ProductsController : Controller
     {
 
@@ -16,12 +15,35 @@ namespace BeSpokedBikes.Controllers
 
         //Controller to show all products
         [HttpGet]
-        //TODO Add [Route] Attribute
+        [Route ("api/Products/Index")]
         public IEnumerable<Products> Index()
         {
             return productsDL.GetAllProducts();
         }
 
-        //TODO Add controller to edit a product
+        //Controller to create a new product
+        [HttpPost]
+        [Route("api/Products/Create")]
+        public int Create([FromBody] Products product)
+        {
+            return productsDL.AddProduct(product);
+        }
+
+        //Controller to get a product by ID
+        [HttpGet]
+        [Route("api/Products/Details/{id}")]
+        public Products Details(int id)
+        {
+            return productsDL.GetProductData(id);
+        }
+
+        //Controller to edit a product
+        [HttpPut]
+        [Route ("api/Products/Edit")]
+        public int Edit([FromBody] Products product)
+        {
+            return productsDL.UpdateProduct(product);
+        }
+
     }
 }

@@ -1,0 +1,68 @@
+﻿<h1>{{title}}</h1>
+<h3>Add Product</h3>
+<hr />
+<form [formGroup]="productForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+
+    <div class="form-group row">
+        <label class=" control-label col-md-12">Name</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="name">
+        </div>
+        <span class="text-danger" *ngIf="name.invalid && formDir.submitted">
+            Name is required.
+        </span>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label col-md-12" for="Manufacturer">Manufacturer</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="manufacturer">
+        </div>
+        <span class="text-danger" *ngIf="manufacturer.invalid && formDir.submitted">
+            Manufacturer is required
+        </span>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12" for="Style">Style</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="style">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12" for="Purchase Price">Purchase Price</label>
+        <div class="col-md-4">
+            <input class="form-control" type="number" formControlName="purchasePrice">
+        </div>
+        <span class="text-danger" *ngIf="purchasePrice.invalid && formDir.submitted">
+            Purchase Price is required
+        </span>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12" for="Sale Price">Sale Price</label>
+        <div class="col-md-4">
+            <input class="form-control" type="number" formControlName="salePrice">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12" for="Quantity On Hand">Quantity On Hand</label>
+        <div class="col-md-4">
+            <input class="form-control" type="number" formControlName="qtyOnHand">
+        </div>
+        <span class="text-danger" *ngIf="qtyOnHand.invalid && formDir.submitted">
+            Quantity On Hand is required
+        </span>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12" for="Commission Percentage">Commission Percentage</label>
+        <div class="col-md-4">
+            <input class="form-control" type="number" formControlName="commissionPercentage">
+        </div>
+        <span class="text-danger" *ngIf="commissionPercentage.invalid && formDir.submitted">
+            Commission Percentage is required
+        </span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-default">Save</button>
+        <button class="btn" (click)="cancel()">Cancel</button>
+    </div>
+</form>
