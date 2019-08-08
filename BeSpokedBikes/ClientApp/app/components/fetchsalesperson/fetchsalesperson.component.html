@@ -18,7 +18,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let salesperson of salespersonList">
-            <td>{{ salesperson.salespersonId }}</td>
+            <td>{{ salesperson.salesPersonId }}</td>
             <td>{{ salesperson.firstName }}</td>
             <td>{{ salesperson.lastName }}</td>
             <td>{{ salesperson.address }}</td>
@@ -28,7 +28,7 @@
             <td>{{ salesperson.manager }}</td>
             <td>
             <td>
-                <a [routerLink]="['/salesperson/edit/', salesperson.salespersonId]">Edit</a>
+                <a [routerLink]="['/salesperson/edit/', salesperson.salesPersonId]">Edit</a>
                 <!--<a [routerLink]="" (click)="delete(product.productId)">Delete</a>-->
             </td>
         </tr>

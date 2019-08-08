@@ -13,18 +13,18 @@ import { SalesPersonService } from '../../services/salespersonservice.service';
 export class addorupdatesalesperson implements OnInit {
     salespersonForm: FormGroup;
     title: string = "Edit";
-    salespersonId: number;
+    salesPersonId: number;
     errorMessage: any;
 
 
     constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute,
         private _salespersonService: SalesPersonService, private _router: Router) {
         if (this._avRoute.snapshot.params["id"]) {
-            this.salespersonId = this._avRoute.snapshot.params["id"];
+            this.salesPersonId = this._avRoute.snapshot.params["id"];
         }
 
         this.salespersonForm = this._fb.group({
-            salespersonId: 0,
+            salesPersonId: 0,
             firstName: ['', [Validators.required]],
             lastName: ['', [Validators.required]],
             address: '',
@@ -37,9 +37,9 @@ export class addorupdatesalesperson implements OnInit {
 
     ngOnInit() {
 
-        if (this.salespersonId > 0) {
+        if (this.salesPersonId > 0) {
             this.title = "Edit";
-            this._salespersonService.getSalesPersonById(this.salespersonId)
+            this._salespersonService.getSalesPersonById(this.salesPersonId)
                 .subscribe(resp => this.salespersonForm.setValue(resp)
                     , error => this.errorMessage = error);
         }
@@ -53,7 +53,7 @@ export class addorupdatesalesperson implements OnInit {
         }
 
         if (this.title == "Edit") {
-            this._salespersonService.getSalesPersonById(this.salespersonForm.value)
+            this._salespersonService.updateSalesPerson(this.salespersonForm.value)
                 .subscribe((data) => {
                     this._router.navigate(['/fetch-salesperson']);
                 }, error => this.errorMessage = error)

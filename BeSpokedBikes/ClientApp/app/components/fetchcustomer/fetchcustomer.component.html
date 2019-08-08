@@ -1,0 +1,29 @@
+﻿<h1>Customer Data</h1>
+
+<p>This component demonstrates fetching Customer data from the server.</p>
+
+<p *ngIf="!customerList"><em>Loading...</em></p>
+
+<table class='table' *ngIf="customerList">
+    <thead>
+        <tr>
+            <th>CustomerID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Start Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let customer of customerList">
+            <td>{{ customer.customerId }}</td>
+            <td>{{ customer.firstName }}</td>
+            <td>{{ customer.lastName }}</td>
+            <td>{{ customer.address }}</td>
+            <td>{{ customer.phone }}</td>
+            <td>{{ customer.startDate }}</td>
+            <td>
+        </tr>
+    </tbody>
+</table>
