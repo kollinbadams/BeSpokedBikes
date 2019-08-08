@@ -1,0 +1,64 @@
+﻿<h1>{{title}}</h1>
+<h3>Add Sale</h3>
+<hr />
+<form [formGroup]="saleForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+
+    <div class="form-group row">
+        <label class="control-label col-md-12" for="Product">Product</label>
+        <div class="col-md-4">
+            <select class="form-control" data-val="true" formControlName="product">
+                <option value="">--Select Product--</option>
+                <option *ngFor="let product of productList"
+                        value={{product.productId}}>
+                    {{product.productId}}
+                </option>
+            </select>
+        </div>
+        <span class="text-danger" *ngIf="product.invalid && formDir.submitted">
+            Product is required
+        </span>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label col-md-12" for="SalesPerson">SalesPerson</label>
+        <div class="col-md-4">
+            <select class="form-control" data-val="true" formControlName="salesPerson">
+                <option value="">--Select SalesPerson--</option>
+                <option *ngFor="let salesperson of salespersonList"
+                        value={{salesperson.salesPersonId}}>
+                    {{salesperson.firstName}} {{salesperson.lastName}}
+                </option>
+            </select>
+        </div>
+        <span class="text-danger" *ngIf="salesPerson.invalid && formDir.submitted">
+            SalesPerson is required
+        </span>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label col-md-12" for="Customer">Customer</label>
+        <div class="col-md-4">
+            <select class="form-control" data-val="true" formControlName="customer">
+                <option value="">--Select Customer--</option>
+                <option *ngFor="let customer of customerList"
+                        value={{customer.customerId}}>
+                    {{customer.firstName}} {{customer.lastName}}
+                </option>
+            </select>
+        </div>
+        <span class="text-danger" *ngIf="customer.invalid && formDir.submitted">
+            Customer is required
+        </span>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12" for="SalesDate">Sales Date</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="salesDate" value="2019-08-08 00:49:18.207">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <button type="submit" class="btn btn-default">Save</button>
+        <button class="btn" (click)="cancel()">Cancel</button>
+    </div>
+</form>

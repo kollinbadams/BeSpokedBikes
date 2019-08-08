@@ -13,6 +13,8 @@ import { createproduct } from './components/addproduct/AddProduct.component'
 import { FetchSalesPersonComponent } from './components/fetchsalesperson/fetchsalesperson.component'
 import { addorupdatesalesperson } from './components/addorupdatesalesperson/addorupdatesalesperson.component'
 import { FetchCustomerComponent } from './components/fetchcustomer/fetchcustomer.component'
+import { FetchSaleComponent } from './components/fetchsale/fetchsale.component'
+import { createsale } from './components/addsale/addsale.component'
 
 
 
@@ -25,7 +27,9 @@ import { FetchCustomerComponent } from './components/fetchcustomer/fetchcustomer
         createproduct,
         FetchSalesPersonComponent,
         addorupdatesalesperson,
-        FetchCustomerComponent
+        FetchCustomerComponent,
+        FetchSaleComponent,
+        createsale
     ],
     imports: [
         CommonModule,
@@ -41,6 +45,8 @@ import { FetchCustomerComponent } from './components/fetchcustomer/fetchcustomer
             { path: 'fetch-salesperson', component: FetchSalesPersonComponent },
             { path: 'salesperson/edit/:id', component: addorupdatesalesperson },
             { path: 'fetch-customer', component: FetchCustomerComponent },
+            { path: 'fetch-sale', component: FetchSaleComponent },
+            { path: 'register-sale', component: createsale },
             { path: '**', redirectTo: 'home' }
         ])
     ],

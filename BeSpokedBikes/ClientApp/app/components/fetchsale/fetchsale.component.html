@@ -1,0 +1,30 @@
+﻿<h1>Sale Data</h1>
+
+<p>This component demonstrates fetching Sale data from the server.</p>
+
+<p *ngIf="!saleList"><em>Loading...</em></p>
+
+<p>
+    <a [routerLink]="['/register-sale']">Create New</a>
+</p>
+
+<table class='table' *ngIf="saleList">
+    <thead>
+        <tr>
+            <th>SaleID</th>
+            <th>Product</th>
+            <th>SalesPerson</th>
+            <th>Customer</th>
+            <th>Sale Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let sale of saleList">
+            <td>{{ sale.salesId }}</td>
+            <td>{{ sale.product }}</td>
+            <td>{{ sale.salesPerson }}</td>
+            <td>{{ sale.customer }}</td>
+            <td>{{ sale.salesDate }}</td>
+        </tr>
+    </tbody>
+</table>
