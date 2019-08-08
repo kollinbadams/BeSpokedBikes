@@ -1,0 +1,36 @@
+﻿<h1>SalesPerson Data</h1>
+
+<p *ngIf="!salespersonList"><em>Loading...</em></p>
+
+
+<table class='table' *ngIf="salespersonList">
+    <thead>
+        <tr>
+            <th>SalesPersonID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Start Date</th>
+            <th>Termination Date</th>
+            <th>Manager</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let salesperson of salespersonList">
+            <td>{{ salesperson.salespersonId }}</td>
+            <td>{{ salesperson.firstName }}</td>
+            <td>{{ salesperson.lastName }}</td>
+            <td>{{ salesperson.address }}</td>
+            <td>{{ salesperson.phone }}</td>
+            <td>{{ salesperson.startDate }}</td>
+            <td>{{ salesperson.terminationDate }}</td>
+            <td>{{ salesperson.manager }}</td>
+            <td>
+            <td>
+                <a [routerLink]="['/salesperson/edit/', salesperson.salespersonId]">Edit</a>
+                <!--<a [routerLink]="" (click)="delete(product.productId)">Delete</a>-->
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -26,15 +26,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app\components\addorupdatesalesperson\addorupdatesalesperson.component.ts" />
     <None Remove="ClientApp\app\components\addproduct\addproduct.component.ts" />
     <None Remove="ClientApp\app\components\fetchproduct\fetchproduct.component.ts" />
+    <None Remove="ClientApp\app\components\fetchsalesperson\fetchsalesperson.component.ts" />
     <None Remove="ClientApp\app\Services\productservice.service.ts" />
+    <None Remove="ClientApp\app\Services\salespersonservice.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\components\addorupdatesalesperson\addorupdatesalesperson.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\addproduct\addproduct.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\fetchproduct\fetchproduct.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\fetchsalesperson\fetchsalesperson.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\Services\productservice.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\Services\salespersonservice.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
